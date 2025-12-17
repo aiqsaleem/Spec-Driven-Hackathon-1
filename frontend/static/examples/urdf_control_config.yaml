@@ -1,0 +1,45 @@
+# URDF to ROS 2 Control Configuration
+# This file demonstrates how to configure ros2_control for a robot described in URDF
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # Joint Trajectory Controller for position control
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    # Forward Command Controller for direct velocity control
+    forward_velocity_controller:
+      type: forward_command_controller/ForwardCommandController
+
+# Joint Trajectory Controller Configuration
+joint_trajectory_controller:
+  ros__parameters:
+    # Joint names must match those in your URDF
+    joints:
+      - shoulder_abduction_joint
+      - shoulder_flexion_joint
+      - elbow_joint
+      - wrist_joint
+
+    # Command interfaces (what the controller accepts)
+    command_interfaces:
+      - position
+
+    # State interfaces (what the controller reads)
+    state_interfaces:
+      - position
+      - velocity
+
+# Forward Command Controller Configuration
+forward_velocity_controller:
+  ros__parameters:
+    # Joint names must match those in your URDF
+    joints:
+      - shoulder_abduction_joint
+      - shoulder_flexion_joint
+      - elbow_joint
+      - wrist_joint
+
+    interface_name: velocity

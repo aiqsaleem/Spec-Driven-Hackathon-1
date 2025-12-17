@@ -1,0 +1,23 @@
+graph TB
+    subgraph "Python AI Agent"
+        A[Python AI Logic] --> B[rclpy Node]
+    end
+
+    subgraph "ROS 2 Ecosystem"
+        B --> C[ROS 2 Topic]
+        D[Sensor Data] --> C
+        C --> E[Robot Controller]
+        F[Robot State] --> G[ROS 2 Topic 2]
+        G --> B
+    end
+
+    A -.->|Sends Commands| E
+    E -.->|Provides State| A
+
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fce4ec
+    style F fill:#fff3e0
+    style G fill:#e8f5e8

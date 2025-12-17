@@ -1,0 +1,110 @@
+# API Contract: Course Content Access
+
+## Overview
+This API provides programmatic access to course content for potential integration with AI services or other tools.
+
+## Endpoints
+
+### GET /api/v1/modules
+Retrieve a list of all available modules in the course.
+
+**Request**:
+- Method: GET
+- URL: `/api/v1/modules`
+- Headers: None required
+
+**Response**:
+- Status: 200 OK
+- Content-Type: application/json
+
+**Response Body**:
+```json
+{
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "ROS 2 Fundamentals",
+      "description": "Foundational middleware concepts for controlling humanoid robots using ROS 2",
+      "chapters_count": 3,
+      "estimated_duration": 180
+    }
+  ]
+}
+```
+
+### GET /api/v1/modules/{module_id}/chapters
+Retrieve all chapters for a specific module.
+
+**Request**:
+- Method: GET
+- URL: `/api/v1/modules/{module_id}/chapters`
+- Headers: None required
+
+**Response**:
+- Status: 200 OK
+- Content-Type: application/json
+
+**Response Body**:
+```json
+{
+  "module_id": "module-1",
+  "chapters": [
+    {
+      "id": "chapter-1",
+      "title": "ROS 2 Communication Fundamentals",
+      "content_url": "/api/v1/modules/module-1/chapters/chapter-1/content",
+      "estimated_duration": 60
+    }
+  ]
+}
+```
+
+### GET /api/v1/modules/{module_id}/chapters/{chapter_id}/content
+Retrieve the content of a specific chapter.
+
+**Request**:
+- Method: GET
+- URL: `/api/v1/modules/{module_id}/chapters/{chapter_id}/content`
+- Headers: None required
+
+**Response**:
+- Status: 200 OK
+- Content-Type: application/json
+
+**Response Body**:
+```json
+{
+  "module_id": "module-1",
+  "chapter_id": "chapter-1",
+  "title": "ROS 2 Communication Fundamentals",
+  "content": "# ROS 2 Communication Fundamentals\n\nThis chapter covers...",
+  "learning_objectives": [
+    "Understand ROS 2 nodes, topics, services, and actions",
+    "Use ROS 2 CLI tools effectively"
+  ],
+  "examples": [
+    {
+      "title": "Simple Publisher",
+      "code": "import rclpy\nfrom std_msgs.msg import String\n...",
+      "language": "python"
+    }
+  ]
+}
+```
+
+## Error Responses
+
+All endpoints may return the following error responses:
+
+- 404 Not Found: Resource does not exist
+- 500 Internal Server Error: Server error occurred
+
+**Error Response Body**:
+```json
+{
+  "error": {
+    "code": "RESOURCE_NOT_FOUND",
+    "message": "The requested resource was not found"
+  }
+}
+```

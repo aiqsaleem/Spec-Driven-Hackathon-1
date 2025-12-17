@@ -1,0 +1,27 @@
+.diagramContainer {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+}
+
+.diagramContent {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.diagramDescription {
+  font-style: italic;
+  color: #666;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .diagramContainer {
+    padding: 15px;
+  }
+}

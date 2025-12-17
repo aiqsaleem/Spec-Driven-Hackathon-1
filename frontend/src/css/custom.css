@@ -1,0 +1,75 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #00a8e1; /* ROS 2 blue */
+  --ifm-color-primary-dark: #0091c2;
+  --ifm-color-primary-darker: #0085b3;
+  --ifm-color-primary-darkest: #00698f;
+  --ifm-color-primary-light: #1aabf0;
+  --ifm-color-primary-lighter: #2db4ff;
+  --ifm-color-primary-lightest: #4dc5ff;
+  --ifm-color-secondary: #3d444d; /* Dark gray for text */
+  --ifm-color-success: #4caf50; /* Green for success states */
+  --ifm-color-info: #2196f3; /* Blue for info states */
+  --ifm-color-warning: #ff9800; /* Orange for warnings */
+  --ifm-color-danger: #f44336; /* Red for errors */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 168, 225, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #00b4ff; /* Lighter blue for dark mode */
+  --ifm-color-primary-dark: #0099d9;
+  --ifm-color-primary-darker: #0088c2;
+  --ifm-color-primary-darkest: #006d9e;
+  --ifm-color-primary-light: #33c0ff;
+  --ifm-color-primary-lighter: #66ccff;
+  --ifm-color-primary-lightest: #99d9ff;
+  --ifm-color-secondary: #e4e5e6; /* Light gray for text in dark mode */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 168, 225, 0.3);
+}
+
+/* Custom styles for robotics content */
+.robotics-code-block {
+  border-left: 4px solid var(--ifm-color-primary);
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+}
+
+.robotics-diagram {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* Custom admonitions for robotics concepts */
+.admonition-ros-node {
+  border-color: #00a8e1;
+}
+
+.admonition-ros-node .admonition-icon {
+  background-color: #00a8e1;
+}
+
+/* Improve code block styling for ROS examples */
+.prism-code.language-python {
+  font-size: 0.9rem;
+}
+
+/* Custom styling for ROS 2 message types */
+.ros-message-type {
+  font-family: var(--ifm-font-family-monospace);
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}

@@ -1,0 +1,27 @@
+graph LR
+    A[Node A] -->|Publishes to| B[Topic]
+    C[Node B] -->|Publishes to| B
+    B -->|Subscribes to| D[Node C]
+    B -->|Subscribes to| E[Node D]
+
+    F[Service Client] -->|Requests| G[Service Server]
+    G -->|Responds| F
+
+    H[Action Client] -->|Sends Goal| I[Action Server]
+    I -->|Sends Feedback| H
+    I -->|Sends Result| H
+
+    J[DDS Middleware] -.-> B
+    J -.-> G
+    J -.-> I
+
+    style A fill:#e1f5fe
+    style C fill:#e1f5fe
+    style B fill:#f3e5f5
+    style D fill:#e8f5e8
+    style E fill:#e8f5e8
+    style F fill:#fff3e0
+    style G fill:#fff3e0
+    style H fill:#fce4ec
+    style I fill:#fce4ec
+    style J fill:#fafafa
