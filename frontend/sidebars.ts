@@ -30,6 +30,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Module 2: The Digital Twin (Gazebo & Unity)',
+      collapsed: false,
+      items: [
+        'module-2/intro',
+        'module-2/chapter-1',
+        'module-2/chapter-2',
+        'module-2/chapter-3'
+      ],
+    },
+    {
+      type: 'category',
       label: 'Reference',
       collapsed: true,
       items: [
